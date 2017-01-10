@@ -3,11 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Flyer;
+use App\Photo;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
+
 class FlyersController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['show']]);
+        parent::__construct();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +35,6 @@ class FlyersController extends Controller
      */
     public function create()
     {
-        // flash()->info('hello', 'Welcome here');
         return view('flyers.create');
     }
 
@@ -38,8 +47,8 @@ class FlyersController extends Controller
     public function store(Requests\FlyerRequest $request)
     {
         Flyer::create($request->all());
-
-        return back();
+        flash()->success('success', 'your flyer is created');
+        return redirect()->route('');
     }
 
     /**
@@ -50,11 +59,15 @@ class FlyersController extends Controller
     public function show($zip, $street)
     {
         $flyer = Flyer::locatedAt($zip, $street);
+
         $flyer->load('photos');
-        return view('flyers.show', compact('flyer'));
+
+        $storage = Storage::url('');
+
+        return view('flyers.show', compact('flyer', 'storage'));
     }
 
-    
+
 
     /**
      * Show the form for editing the specified resource.
@@ -90,14 +103,26 @@ class FlyersController extends Controller
         //
     }
 
+
     public function addPhoto($zip, $street, Request $request)
     {
         $this->validate($request, [
             'photo' => 'required|mimes:jpg,jpeg,png'
         ]);
-        $path = $request->file('photo')->store('photos');
-        $flyer = Flyer::locatedAt($zip, $street)->addPhoto($path);
-        
-        return 'Done';
+
+        // dd($request->file('photo'));
+
+
+        $photo = $this->makePhoto($request->file('photo'));
+
+        Flyer::locatedAt($zip, $street)->addPhoto($photo);
     }
+
+    public function makePhoto(UploadedFile $file){
+
+        return Photo::named($file->getClientOriginalName())->move($file);
+
+    }
+
+
 }

@@ -15,16 +15,27 @@
         </div>
 
         <div class="col-md-8">
-            @foreach($flyer->photos as $photo)
-                <img src="{{ url('../storage/app/'.$photo->path) }}" class="img-responsive" alt="Responsive image">
+            @foreach ($flyer->photos->chunk(4) as $set)
+                <div class="row gallary">
+                    @foreach($set as $photo)
+
+                        <div class="col-md-3">
+                            <img src="{{ url($storage . $photo->thumbnail_path) }}" class="img-responsive  " alt="Responsive image">
+                        </div>
+                    @endforeach
+                </div>
             @endforeach
-        </div>        
+
+        </div>
     </div >
+
 
 
     <hr>
     <h2>Add your Photos</h2>
-    <form id="addPhotos" action="{{url( $flyer->urlToPostPhotos() )}}" methos="POST" class="dropzone">
+    <form id="addPhotos" action="{{url( $flyer->urlToPostPhotos() )}}"
+                         methos="POST"
+                         class="dropzone">
         {{ csrf_field() }}
     </form>
 @endsection

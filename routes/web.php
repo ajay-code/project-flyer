@@ -1,11 +1,12 @@
 <?php
 
-Route::get('/', function () {
-    return view('pages.home');
-});
-
-
+Route::get('/', 'HomeController@home');
 
 Route::resource('flyers', 'FlyersController');
-Route::get('{zip}/{street}', 'FlyersController@show');
-Route::post('{zip}/{street}/photos', 'FlyersController@addPhoto');
+Route::get('{zip}/{street}', 'FlyersController@show')->name('showFlyer');
+Route::post('{zip}/{street}/photos',['as' => 'store_photo_path' ,'uses' => 'FlyersController@addPhoto']);
+
+
+
+Auth::routes();
+

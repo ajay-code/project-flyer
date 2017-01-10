@@ -8844,8 +8844,8 @@ body.stop-scrolling {
   height: 39px;
 }
 
-body {
-  padding-top: 70px;
+.gallary img {
+  margin-bottom: 1em;
 }
 
 /*# sourceMappingURL=app.css.map */
