@@ -1,0 +1,48 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Users\\HP\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'run',
+1 verbose cli   'dev' ]
+2 info using npm@3.10.8
+3 info using node@v7.2.1
+4 verbose run-script [ 'predev', 'dev', 'postdev' ]
+5 info lifecycle @~predev: @
+6 silly lifecycle @~predev: no script for predev, continuing
+7 info lifecycle @~dev: @
+8 verbose lifecycle @~dev: unsafe-perm in lifecycle true
+9 verbose lifecycle @~dev: PATH: C:\Users\HP\AppData\Roaming\npm\node_modules\npm\bin\node-gyp-bin;C:\wamp64\www\projects\project-flayer\node_modules\.bin;c:\program files\graphicsmagick-1.3.23-q16;C:\Program Files\ImageMagick-7.0.3-Q16;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Broadcom\Broadcom 802.11;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Hewlett-Packard\SimplePass\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Android;C:\Windows\System32;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 & MySQL Utilities 1.5\;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 & MySQL Utilities 1.5\Doctrine extensions for PHP\;C:\Program Files (x86)\Heroku\bin;C:\Program Files (x86)\git\cmd;C:\Users\HP\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Go\bin;C:\Program Files (x86)\Android\android-sdk\platform-tools;C:\Program Files (x86)\Android\android-sdk\tools;C:\ProgramData\ComposerSetup\bin;C:\ProgramData\chocolatey\bin;C:\wamp64\bin\php\php7.0.10;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin;C:\Program Files\Git\bin;C:\tools\sqlite;C:\Program Files (x86)\PuTTY\;C:\Program Files\nodejs;C:\Program Files (x86)\Google\Chrome\Application;C:\Program Files\Git\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Program Files\MongoDB\Server\3.0\bin;C:\Program Files\swipl\bin;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\HP\AppData\Local\Microsoft\WindowsApps;C:\Go\bin;C:\Python27;C:\Program Files\Java\jdk1.8.0_101\bin;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin;C:\Users\HP\AppData\Roaming\Composer\vendor\bin;C:\Program Files\PostgreSQL\9.5\bin;C:\Program Files (x86)\Yarn\bin;C:\Program Files\GraphicsMagick-1.3.23-Q16;C:\Users\HP\AppData\Roaming\npm;C:\Users\HP\AppData\Local\Yarn\.bin;C:\tools\sqlite;C:\bin;C:\Users\HP\AppData\Local\atom\bin
+10 verbose lifecycle @~dev: CWD: C:\wamp64\www\projects\project-flayer
+11 silly lifecycle @~dev: Args: [ '/d /s /c', 'gulp watch' ]
+12 silly lifecycle @~dev: Returned: code: 3221225786  signal: null
+13 info lifecycle @~dev: Failed to exec dev script
+14 verbose stack Error: @ dev: `gulp watch`
+14 verbose stack Exit status 3221225786
+14 verbose stack     at EventEmitter.<anonymous> (C:\Users\HP\AppData\Roaming\npm\node_modules\npm\lib\utils\lifecycle.js:255:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (C:\Users\HP\AppData\Roaming\npm\node_modules\npm\lib\utils\spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:885:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+15 verbose pkgid @
+16 verbose cwd C:\wamp64\www\projects\project-flayer
+17 error Windows_NT 10.0.14393
+18 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\HP\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "run" "dev"
+19 error node v7.2.1
+20 error npm  v3.10.8
+21 error code ELIFECYCLE
+22 error @ dev: `gulp watch`
+22 error Exit status 3221225786
+23 error Failed at the @ dev script 'gulp watch'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the  package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     gulp watch
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]

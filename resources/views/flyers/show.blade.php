@@ -20,24 +20,39 @@
                     @foreach($set as $photo)
 
                         <div class="col-md-3">
-                            <img src="{{ url($storage . $photo->thumbnail_path) }}" class="img-responsive  " alt="Responsive image">
+
+                            <form action="{{url('/photos/'.$photo->id)}}" class="rel" method="post">
+                                {{csrf_field()}}
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="close close-button" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                            </form>
+                            <a href="{{ url($storage . $photo->path) }}" data-lity>
+                            <img src="{{ url($storage . $photo->thumbnail_path) }}" class="img-responsive" alt="Responsive image">
+                            </a>
                         </div>
                     @endforeach
                 </div>
             @endforeach
+
+
+            <hr>
+            @can('addPhoto', $flyer)
+                <h2>Add your Photos</h2>
+                <form id="addPhotos" action="{{url( $flyer->urlToPostPhotos() )}}"
+                                     methos="POST"
+                                     class="dropzone">
+                    {{ csrf_field() }}
+                </form>
+            @endcan
 
         </div>
     </div >
 
 
 
-    <hr>
-    <h2>Add your Photos</h2>
-    <form id="addPhotos" action="{{url( $flyer->urlToPostPhotos() )}}"
-                         methos="POST"
-                         class="dropzone">
-        {{ csrf_field() }}
-    </form>
+
 @endsection
 
 @section('scripts.footer')

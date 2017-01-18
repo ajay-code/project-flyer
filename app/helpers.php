@@ -1,11 +1,22 @@
  <?php
 
- function flash($title = null, $message = null){
+use App\Flyer;
+
+
+
+ function flash($title = null, $message = null)
+ {
      $flash = app('App\Http\Flash');
 
-     if(func_num_args() == 0){
+     if (func_num_args() == 0) {
          return $flash;
      }
 
      return $flash->info($title, $message);
+ }
+
+
+ function flyer_url(App\Flyer $flyer)
+ {
+     return '/' . $flyer->zip . '/'. str_replace(' ', '-', $flyer->street);
  }

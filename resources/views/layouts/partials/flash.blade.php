@@ -8,7 +8,7 @@
                 type: "{{session('flash_message.level')}}",
                 showConfirmButton: false
             });
-    </script>    
+    </script>
 @endif
 
 
@@ -20,5 +20,5 @@
                 type: "{{session('flash_message_overlay.level')}}",
                 confirmButtonText: 'Okay'
             });
-    </script>    
+    </script>
 @endif

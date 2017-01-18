@@ -18,5 +18,6 @@ const app = new Vue({
     el: '#app'
 });
 
-require('sweetalert');
 window.swal = require('sweetalert');
+
+require('lity');

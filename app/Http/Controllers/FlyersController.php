@@ -7,16 +7,12 @@ use App\Photo;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-
 
 class FlyersController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth', ['except' => ['show']]);
-        parent::__construct();
     }
     /**
      * Display a listing of the resource.
@@ -46,15 +42,19 @@ class FlyersController extends Controller
      */
     public function store(Requests\FlyerRequest $request)
     {
-        Flyer::create($request->all());
+        $flyer  = auth()->user()->publish(
+            new Flyer($request->all())
+        );
+
         flash()->success('success', 'your flyer is created');
-        return redirect()->route('');
+
+        return redirect(flyer_url($flyer));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  $zip , $street
      */
     public function show($zip, $street)
     {
@@ -110,19 +110,18 @@ class FlyersController extends Controller
             'photo' => 'required|mimes:jpg,jpeg,png'
         ]);
 
-        // dd($request->file('photo'));
 
-
-        $photo = $this->makePhoto($request->file('photo'));
+        $photo = Photo::fromFile($request->file('photo'))->upload();
 
         Flyer::locatedAt($zip, $street)->addPhoto($photo);
     }
 
-    public function makePhoto(UploadedFile $file){
 
-        return Photo::named($file->getClientOriginalName())->move($file);
+    public function deletePhoto($id)
+    {
+        Photo::findOrFail($id)->delete();
+
+        return back();
 
     }
-
-
 }

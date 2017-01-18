@@ -4,6 +4,20 @@
 @import "variables";
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "node_modules/lity/dist/lity";
 @import "node_modules/sweetalert/dist/sweetalert";
 @import "partials/forms";
 @import "partials/gallary";
+
+.close-button {
+    display      : inline-block;
+    border-style : solid;
+    position     : relative;
+    top          : -6px;
+    border-radius: 100%;
+    box-shadow   : 0 0 rgba(0,0,0,0.5);
+}
+
+.rel {
+    position: absolute;
+}
